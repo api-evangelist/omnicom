@@ -1,7 +1,11 @@
 aid: omnicom
-url: https://raw.githubusercontent.com/api-evangelist/omnicom/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/omnicom/refs/heads/main/apis.yml
 modified: '2026-03-21'
 apis: []
 common:
   - type: Website
     url: https://www.omnicom.com
+description: >-
+  Omnicom Group is a global advertising, marketing, and corporate communications holding
+  company with hundreds of agencies serving clients in more than 100 countries.
