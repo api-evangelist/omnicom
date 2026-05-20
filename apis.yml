@@ -12,6 +12,8 @@ tags:
   - Marketing
   - Holding Company
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/omnicom
   - type: Website
     url: https://www.omnicomgroup.com
   - type: Newsroom
