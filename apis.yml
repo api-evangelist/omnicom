@@ -12,6 +12,8 @@ tags:
   - Marketing
   - Holding Company
 common:
+  - type: DomainSecurity
+    url: security/omnicom-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/omnicom
   - type: Website
