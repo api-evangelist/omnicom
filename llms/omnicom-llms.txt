@@ -1,0 +1,113 @@
+# Omnicom Group Inc.
+
+> Omnicom Group Inc. (NYSE: OMC) is the world's largest marketing and sales
+> communications holding company, formed in its current shape when Omnicom
+> completed its acquisition of Interpublic Group on 26 November 2025 (pro forma
+> combined revenue in excess of $25 billion). It operates across advertising,
+> media, precision marketing, commerce, public relations, healthcare, branding,
+> experiential and production in more than 100 countries, through networks
+> including BBDO, DDB, TBWA, OMD, PHD, Hearts & Science, McCann, FCB,
+> Mediabrands, Flywheel and Acxiom. Its Omni platform — built and run by
+> Annalect, Omnicom's data, technology and AI division — is marketed as an
+> AI-driven marketing intelligence operating system.
+
+generated: 2026-08-12
+method: generated
+source: apis.yml + artifacts in this repository (no /llms.txt is published by the
+provider; https://www.omc.com/llms.txt returns 404 and
+https://omni.omc.com/llms.txt returns the platform's Angular shell)
+
+## API surface
+
+Omnicom publishes **no public API**. As of the 2026-08-12 probe there is no
+developer portal, no API reference, no OpenAPI/Swagger/AsyncAPI/GraphQL
+document, no first-party SDK on npm, PyPI or any other public registry, no
+public MCP server, and no A2A agent card on any Omnicom host.
+
+Contract discovery was run against every host the company controls:
+
+- `www.omc.com` — WordPress corporate site. `/openapi.json`, `/swagger.json`,
+  `/api-docs`, `/llms.txt`, `/security.txt` and every `/.well-known/*` path
+  return HTTP 404. `/wp-json/` returns HTTP 403 (WAF), so even the CMS API is
+  closed.
+- `omni.omc.com` — the Omni platform. An Angular single-page application behind
+  Imperva that 301-redirects every unknown path to `/home/` and then serves the
+  same HTML shell with HTTP 200. Every 200 on this host is a catch-all, not a
+  document; `/openapi.json`, `/graphql`, `/.well-known/agent-card.json` and
+  `/.well-known/agent.json` all return that shell.
+- `api.omc.com`, `developer.omc.com`, `docs.omc.com`, `platform.omc.com` — do
+  not resolve in DNS.
+- `www.omnicomgroup.com` — the legacy corporate domain; 301-redirects to
+  `www.omc.com`.
+
+The Omni product page describes the platform as "interoperable by design" and
+Omnicom has publicly announced integrations it *consumes* (Instacart Developer
+Platform, The Trade Desk, InfoSum, Affinity Solutions), but the platform's own
+programmatic surface is delivered to agencies and clients rather than published.
+
+## Company
+
+- [Omnicom](https://www.omc.com/): Company home.
+- [About](https://www.omc.com/about/): Company background.
+- [Corporate leadership](https://www.omc.com/about/corporate-leadership/)
+- [Capability leadership](https://www.omc.com/about/capability-leadership/)
+- [Corporate governance](https://www.omc.com/about/corporate-governance/)
+- [Investor relations](https://investor.omc.com): SEC filings and results.
+- [Newsroom](https://www.omc.com/news/)
+- [LinkedIn](https://www.linkedin.com/company/omnicom)
+
+## Platform
+
+- [Omni](https://www.omc.com/omni/): AI-driven marketing intelligence platform —
+  central orchestration, personalized production at scale, predictive
+  intelligence, an identity backbone on Acxiom Real ID, outcome-driven
+  activation and localized optimization.
+- [Omni platform host](https://omni.omc.com/home/): Client/agency application
+  (Angular SPA, no public API surface).
+- [Annalect](https://www.annalect.com/): Omnicom's data, technology, analytics
+  and AI division; builds and operates Omni.
+
+## Capabilities
+
+- [All capabilities](https://www.omc.com/capabilities/)
+- [Advertising](https://www.omc.com/capabilities/capability-advertising/)
+- [Media](https://www.omc.com/capabilities/capability-media/)
+- [Precision marketing](https://www.omc.com/capabilities/capability-precision-marketing/)
+- [Commerce](https://www.omc.com/capabilities/capability-commerce/)
+- [Public relations](https://www.omc.com/capabilities/capability-public-relations/)
+- [Health](https://www.omc.com/capabilities/capability-health/)
+- [Branding](https://www.omc.com/capabilities/capability-branding/)
+- [Experiential](https://www.omc.com/capabilities/capability-experiential/)
+- [Production](https://www.omc.com/capabilities/capability-production/)
+
+## Legal
+
+- [Terms of use](https://www.omc.com/terms-of-use/)
+- [Privacy notice](https://www.omc.com/privacy-notice/)
+- [Cookie consent](https://www.omc.com/cookie-consent/)
+
+## Culture
+
+- [Culture](https://www.omc.com/culture/)
+- [Careers](https://www.omc.com/culture/careers/)
+- [Learning and development](https://www.omc.com/culture/learning-and-development/)
+- [Inclusion and impact](https://www.omc.com/culture/inclusion-and-impact/)
+
+## Code
+
+- [github.com/annalect](https://github.com/annalect): Annalect's public GitHub
+  organization — nine repositories of internal engineering tooling (Airflow
+  Docker images, ChatScript, Conda provisioning, Flask session, ES module
+  helpers). No API specifications and no client libraries; most repositories
+  were last pushed between 2018 and 2023.
+
+## API Evangelist artifacts
+
+- [security/omnicom-domain-security.yml](security/omnicom-domain-security.yml):
+  TLS/HSTS/DNSSEC/CAA/SPF/DMARC probe of omc.com.
+- [well-known/omnicom-well-known.yml](well-known/omnicom-well-known.yml):
+  /.well-known/ probe record across all three hosts (all 404 or catch-all).
+- [security/omnicom-vulnerability-disclosure.yml](security/omnicom-vulnerability-disclosure.yml):
+  negative record — no disclosure program is published; the HackerOne page at
+  hackerone.com/omnicom is an unclaimed community-curated directory entry with a
+  null policy, not an Omnicom-run program, and must not be credited as one.

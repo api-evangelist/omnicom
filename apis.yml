@@ -15,7 +15,7 @@ name: Omnicom Group
 url: >-
   https://raw.githubusercontent.com/api-evangelist/omnicom/refs/heads/main/apis.yml
 created: '2026-03-21'
-modified: '2026-04-28'
+modified: '2026-08-12'
 specificationVersion: '0.19'
 apis: []
 tags:
@@ -23,23 +23,74 @@ tags:
   - Advertising
   - Marketing
   - Holding Company
+  - Media
+  - Public Relations
+  - Marketing Technology
+  - Commerce
+  - Data and Analytics
 common:
-  - type: DomainSecurity
-    url: security/omnicom-domain-security.yml
+  - type: Website
+    url: https://www.omc.com
   - type: LinkedIn
     url: https://www.linkedin.com/company/omnicom
-  - type: Website
-    url: https://www.omnicomgroup.com
   - type: Newsroom
-    url: https://www.omnicomgroup.com/newsroom
+    url: https://www.omc.com/news/
   - type: Investor Relations
-    url: https://investor.omnicomgroup.com
+    url: https://investor.omc.com
+  - type: TermsOfService
+    url: https://www.omc.com/terms-of-use/
+  - type: PrivacyPolicy
+    url: https://www.omc.com/privacy-notice/
+  - type: GitHubOrganization
+    url: https://github.com/annalect
+  - type: DomainSecurity
+    url: security/omnicom-domain-security.yml
+  - type: LLMsTxt
+    url: llms/omnicom-llms.txt
 description: >-
-  Omnicom Group is a global advertising, marketing, and corporate
-  communications holding company with hundreds of agencies serving clients
-  in more than 100 countries. The Omni platform is positioned as an
-  AI-driven marketing intelligence platform but no public APIs are
-  documented at this time.
+  Omnicom Group Inc. (NYSE: OMC) is the world's largest marketing and sales
+  communications holding company, formed in its current shape when Omnicom
+  completed its acquisition of Interpublic Group on 26 November 2025, combining
+  pro forma revenue in excess of $25 billion. The company operates across
+  advertising, media, precision marketing, commerce, public relations,
+  healthcare, branding, experiential and production, serving clients in more
+  than 100 countries through agency networks including BBDO, DDB, TBWA, OMD,
+  PHD, Hearts & Science, McCann, FCB, Mediabrands, Flywheel and Acxiom. Its
+  Omni platform — built and operated by Annalect, Omnicom's data, technology
+  and AI division — is marketed as an AI-driven marketing intelligence
+  operating system spanning orchestration, production, predictive intelligence
+  and outcome-driven activation, and is grounded in Acxiom Real ID identity
+  data. As of the 2026-08-12 probe, Omnicom publishes no public developer
+  program: no developer portal, API reference, OpenAPI/AsyncAPI/GraphQL
+  document, SDK, MCP server or A2A agent card is served from any Omnicom host.
+  The corporate site moved from omnicomgroup.com to omc.com, which 301-redirects
+  the legacy domain.
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
+x-enrichment:
+  date: '2026-08-12'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Omnicom markets the Omni platform heavily but ships it only as an
+    agency/client application at omni.omc.com — an Angular SPA that 301s every
+    unknown path to /home/ and then answers 200 with the same HTML shell — and
+    publishes no developer portal, API reference, spec or SDK anywhere; api.,
+    developer. and docs.omc.com do not resolve in DNS.
+  evidence:
+    - url: https://www.omc.com/openapi.json
+      status: 404
+    - url: https://www.omc.com/.well-known/agent-card.json
+      status: 404
+    - url: https://omni.omc.com/openapi.json
+      status: 301
+    - url: https://www.omc.com/llms.txt
+      status: 404
+    - url: https://www.omc.com/wp-json/
+      status: 403
+  checked: '2026-08-12'

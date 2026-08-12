@@ -42,7 +42,7 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Omnicom Group is a Fortune 500 global advertising, marketing, and corporate communications holding company with hundreds of agencies serving clients in more than 100 countries. The Omni platform is positioned as an AI-driven marketing intelligence platform.
+Omnicom Group Inc. (NYSE: OMC) is the world's largest marketing and sales communications holding company, formed in its current shape when Omnicom completed its acquisition of Interpublic Group on 26 November 2025. It operates across advertising, media, precision marketing, commerce, public relations, healthcare, branding, experiential and production in more than 100 countries. The Omni platform, built and operated by Annalect, is positioned as an AI-driven marketing intelligence platform. The corporate site moved from omnicomgroup.com to omc.com, which now 301-redirects the legacy domain.
 
 This repository captures the APIs, developer tools, and machine-readable API artifacts for Omnicom.
 
@@ -60,21 +60,32 @@ This repository captures the APIs, developer tools, and machine-readable API art
 - Advertising
 - Marketing
 - Holding Company
+- Media
+- Public Relations
+- Marketing Technology
+- Commerce
+- Data and Analytics
 
 ## Timestamps
 
 - **Created:** 2026-03-21
-- **Modified:** 2026-04-28
+- **Modified:** 2026-08-12
 
 ## APIs
 
-No public APIs have been documented yet. Contributions welcome.
+No public APIs. As of the 2026-08-12 probe Omnicom publishes no developer portal, API reference, OpenAPI/AsyncAPI/GraphQL document, SDK, MCP server or A2A agent card on any host it controls. `api.omc.com`, `developer.omc.com` and `docs.omc.com` do not resolve in DNS; `www.omc.com` returns HTTP 404 for `/openapi.json`, `/llms.txt` and every `/.well-known/*` path; the Omni platform host `omni.omc.com` is an Angular single-page app that 301-redirects every unknown path to `/home/` and then serves the same HTML shell (a catch-all, not a document). See `x-coverage` in `apis.yml`.
 
 ## Common Properties
 
-- [Website](https://www.omnicomgroup.com)
-- [Newsroom](https://www.omnicomgroup.com/newsroom)
-- [Investor Relations](https://investor.omnicomgroup.com)
+- [Website](https://www.omc.com)
+- [LinkedIn](https://www.linkedin.com/company/omnicom)
+- [Newsroom](https://www.omc.com/news/)
+- [Investor Relations](https://investor.omc.com)
+- [Terms of Service](https://www.omc.com/terms-of-use/)
+- [Privacy Policy](https://www.omc.com/privacy-notice/)
+- [GitHub Organization](https://github.com/annalect)
+- [Domain Security](security/omnicom-domain-security.yml)
+- [llms.txt](llms/omnicom-llms.txt)
 
 ## Maintainers
 

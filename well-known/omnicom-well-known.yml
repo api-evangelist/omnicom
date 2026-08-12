@@ -1,0 +1,133 @@
+generated: '2026-08-12'
+method: probed
+source: https://www.omc.com/
+hosts:
+  - https://www.omc.com
+  - https://omni.omc.com
+  - https://www.omnicomgroup.com
+summary: >-
+  No /.well-known/ discovery document is published on any Omnicom host. The
+  corporate site (www.omc.com, WordPress + Yoast behind Imperva) returns a true
+  HTTP 404 with an HTML 404 page for every probed path. The legacy corporate
+  domain www.omnicomgroup.com 301-redirects everything to www.omc.com. The Omni
+  platform host omni.omc.com is an Angular single-page application that
+  301-redirects every unknown path to /home/ and then serves the same HTML shell
+  with HTTP 200 — a catch-all, NOT a document. No raw files were saved because
+  no probe returned a real document, and NO WellKnown, SecurityTxt, APICatalog
+  or AgentCard pointer is wired in apis.yml.
+catch_all:
+  host: omni.omc.com
+  behavior: 301 to /home/, then 200 text/html Angular shell for every path
+  note: >-
+    Reject any 200 HTML body on omni.omc.com as evidence of a well-known
+    document. This is the dominant A2A agent-card false positive; the probe was
+    followed with a redirect-following fetch and the body was confirmed to be
+    the same 38KB Angular shell (title "Omnicom") for /.well-known/agent-card.json,
+    /.well-known/agent.json, /openapi.json, /swagger.json, /graphql and /llms.txt.
+documents:
+  - host: www.omc.com
+    path: /.well-known/security.txt
+    status: 404
+    found: false
+  - host: www.omc.com
+    path: /.well-known/openid-configuration
+    status: 404
+    found: false
+  - host: www.omc.com
+    path: /.well-known/oauth-authorization-server
+    status: 404
+    found: false
+  - host: www.omc.com
+    path: /.well-known/oauth-protected-resource
+    status: 404
+    found: false
+  - host: www.omc.com
+    path: /.well-known/api-catalog
+    status: 404
+    found: false
+  - host: www.omc.com
+    path: /.well-known/ai-plugin.json
+    status: 404
+    found: false
+  - host: www.omc.com
+    path: /.well-known/agent-card.json
+    status: 404
+    found: false
+  - host: www.omc.com
+    path: /.well-known/agent.json
+    status: 404
+    found: false
+  - host: www.omc.com
+    path: /llms.txt
+    status: 404
+    found: false
+  - host: www.omc.com
+    path: /security.txt
+    status: 404
+    found: false
+  - host: omni.omc.com
+    path: /.well-known/security.txt
+    status: 301
+    found: false
+    reason: catch-all redirect to /home/ (Angular HTML shell)
+  - host: omni.omc.com
+    path: /.well-known/openid-configuration
+    status: 301
+    found: false
+    reason: catch-all redirect to /home/ (Angular HTML shell)
+  - host: omni.omc.com
+    path: /.well-known/oauth-authorization-server
+    status: 301
+    found: false
+    reason: catch-all redirect to /home/ (Angular HTML shell)
+  - host: omni.omc.com
+    path: /.well-known/oauth-protected-resource
+    status: 301
+    found: false
+    reason: catch-all redirect to /home/ (Angular HTML shell)
+  - host: omni.omc.com
+    path: /.well-known/api-catalog
+    status: 301
+    found: false
+    reason: catch-all redirect to /home/ (Angular HTML shell)
+  - host: omni.omc.com
+    path: /.well-known/ai-plugin.json
+    status: 301
+    found: false
+    reason: catch-all redirect to /home/ (Angular HTML shell)
+  - host: omni.omc.com
+    path: /.well-known/agent-card.json
+    status: 301
+    found: false
+    reason: catch-all redirect to /home/ (Angular HTML shell)
+  - host: omni.omc.com
+    path: /.well-known/agent.json
+    status: 301
+    found: false
+    reason: catch-all redirect to /home/ (Angular HTML shell)
+  - host: omni.omc.com
+    path: /llms.txt
+    status: 301
+    found: false
+    reason: catch-all redirect to /home/ (Angular HTML shell)
+  - host: www.omnicomgroup.com
+    path: /.well-known/security.txt
+    status: 301
+    found: false
+    reason: legacy domain, 301 to www.omc.com
+  - host: www.omnicomgroup.com
+    path: /.well-known/agent-card.json
+    status: 301
+    found: false
+    reason: legacy domain, 301 to www.omc.com
+  - host: www.omnicomgroup.com
+    path: /.well-known/agent.json
+    status: 301
+    found: false
+    reason: legacy domain, 301 to www.omc.com
+  - host: www.omnicomgroup.com
+    path: /llms.txt
+    status: 301
+    found: false
+    reason: legacy domain, 301 to www.omc.com
+pointers_emitted: []
