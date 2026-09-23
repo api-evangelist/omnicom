@@ -1,0 +1,27 @@
+# Front Door AI Index — omnicom — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: omnicom
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.omc.com
+  final_host: www.omc.com
+  ownership: own
+  owner: omnicom
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 2
+  host_score: 2
+  density: 5.09
+  words: 393
+  tiers:
+    agentic: 0
+    core: 2
+    model: 0
+  ambiguous: 4
+  top_terms:
+    intelligence: 3
+    AI: 2
+    predictive: 1
